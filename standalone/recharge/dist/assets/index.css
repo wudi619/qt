@@ -1,0 +1,139 @@
+:root {
+  --ex-max-width: 375px;
+  --ex-default-background-color: #ffffff;
+  --ex-default-font-color: #333333;
+  --ex-border-color: #e3e3e3;
+  --ex-primary-color: #4936df;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.2;
+}
+
+html,
+body {
+  background: var(--ex-default-background-color);
+  color: var(--ex-default-font-color);
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-size: 14px;
+}
+
+#app {
+  width: 100%;
+  max-width: var(--ex-max-width);
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--ex-default-background-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.placeholder {
+  height: 61px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--ex-max-width);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 15px;
+  background-color: var(--ex-default-background-color);
+  z-index: 99;
+}
+
+.header.border_bottom {
+  border-bottom: 1px solid var(--ex-border-color);
+}
+
+.header .left {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: normal;
+  color: var(--ex-default-font-color);
+}
+
+.header .left div {
+  font-size: 16px;
+}
+
+.leftImg {
+  width: 16px;
+  height: 12px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.header .right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.content {
+  padding: 30px 15px 0;
+}
+
+.content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.listCoin {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listCoin .left,
+.listCoin .right {
+  display: flex;
+  align-items: center;
+}
+
+.listCoin .coin {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.listCoin span {
+  font-size: 14px;
+}
+
+.listCoin .jiantou {
+  width: 10px;
+  height: 10px;
+}
