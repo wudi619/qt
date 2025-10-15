@@ -1,25 +1,31 @@
 <template>
-  <div>
-    <HeaderBar title="快捷充币" @back="handleBack" />
-    <CoinList :coins="coins" />
+  <div class="page">
+    <HeaderBar title="快捷充币" />
+    <main class="page__body">
+      <CoinList :coins="coins" />
+    </main>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import HeaderBar from './components/HeaderBar.vue'
 import CoinList from './components/CoinList.vue'
 
-const coins = ref([
-  { icon: 'usdt', name: 'USDT - ERC20', address: '0x1234...ABCD' },
-  { icon: 'btc', name: 'BTC', address: 'bc1q....xyz' },
-  { icon: 'eth', name: 'ETH', address: '0x5678...EFGH' },
-  { icon: 'trx', name: 'TRX', address: 'TX1234....5678' }
-])
-
-const handleBack = () => {
-  if (window.history.length > 1) {
-    window.history.back()
-  }
-}
+const coins = [
+  { icon: 'usdt', label: 'USDT - ERC20', code: 'USDT-ERC20' },
+  { icon: 'btc', label: 'BTC', code: 'BTC' },
+  { icon: 'eth', label: 'ETH', code: 'ETH' },
+  { icon: 'trx', label: 'TRX', code: 'TRX' }
+]
 </script>
+
+<style scoped lang="scss">
+.page {
+  min-height: 100vh;
+  background-color: var(--ex-default-background-color);
+}
+
+.page__body {
+  padding-top: 61px;
+}
+</style>

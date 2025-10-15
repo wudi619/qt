@@ -1,21 +1,21 @@
 <template>
   <section class="content">
-    <p>币种列表</p>
+    <p class="content__title">币种列表</p>
     <div class="list">
       <div
         v-for="coin in coins"
-        :key="coin.name"
-        class="listCoin"
+        :key="coin.code"
+        class="list__item"
         role="button"
         tabindex="0"
-        @click="openDetails(coin)"
+        @click="openCoin(coin)"
       >
-        <div class="left">
-          <img class="coin" :src="iconMap[coin.icon]" :alt="coin.name" />
-          <span>{{ coin.name }}</span>
+        <div class="list__item-left">
+          <img class="list__icon" :src="iconMap[coin.icon]" :alt="coin.label" />
+          <span class="list__label">{{ coin.label }}</span>
         </div>
-        <div class="right">
-          <img class="jiantou" :src="arrowIcon" alt="箭头" />
+        <div class="list__item-right">
+          <img class="list__arrow" :src="arrowIcon" alt="" />
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@ import ethIcon from '../assets/icons/eth.svg'
 import trxIcon from '../assets/icons/trx.svg'
 import usdtIcon from '../assets/icons/usdt.svg'
 
-defineProps({
+const { coins } = defineProps({
   coins: {
     type: Array,
     default: () => []
@@ -43,8 +43,9 @@ const iconMap = {
   usdt: usdtIcon
 }
 
-const openDetails = (coin) => {
-  alert(`${coin.name} 地址: ${coin.address}`)
+const openCoin = (coin) => {
+  const url = `recharge-apply.html?coin=${coin.code}`
+  window.location.href = url
 }
 </script>
 
@@ -58,32 +59,32 @@ const openDetails = (coin) => {
   padding: 30px 15px 0;
 }
 
-.content p {
+.content__title {
   font-size: 16px;
   margin-bottom: 20px;
   text-align: left;
 }
 
-.listCoin {
+.list__item {
   margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.left,
-.right {
+.list__item-left,
+.list__item-right {
   display: flex;
   align-items: center;
 }
 
-.coin {
+.list__icon {
   width: 20px;
   height: 20px;
   margin-right: 15px;
 }
 
-.jiantou {
+.list__arrow {
   width: 10px;
   height: 10px;
 }

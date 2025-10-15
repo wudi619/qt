@@ -1,18 +1,20 @@
 <template>
   <div class="placeholder"></div>
-  <header class="header" :class="{ border_bottom: borderBottom }">
-    <div class="left">
-      <img class="leftImg" :src="backIcon" alt="返回" @click="$emit('back')" />
-      <div>{{ title }}</div>
+  <header class="header" :class="{ 'header--border': borderBottom }">
+    <div class="header__left">
+      <button type="button" class="header__back" @click="handleBack" aria-label="返回">
+        <img :src="backIcon" alt="" />
+      </button>
+      <div class="header__title">{{ title }}</div>
     </div>
-    <div class="right"></div>
+    <div class="header__right"></div>
   </header>
 </template>
 
 <script setup>
 import backIcon from '../assets/icons/jiantou-z.svg'
 
-defineProps({
+const { title, borderBottom } = defineProps({
   title: {
     type: String,
     default: ''
@@ -22,6 +24,12 @@ defineProps({
     default: true
   }
 })
+
+const handleBack = () => {
+  if (window.history.length > 1) {
+    window.history.back()
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -42,36 +50,42 @@ defineProps({
   height: 60px;
   padding: 0 15px;
   background-color: var(--ex-default-background-color);
-  z-index: 99;
+  z-index: 10;
 }
 
-.header.border_bottom {
+.header--border {
   border-bottom: 1px solid var(--ex-border-color);
 }
 
-.left {
+.header__left {
   display: flex;
   align-items: center;
   font-size: 16px;
-  font-weight: normal;
   color: var(--ex-default-font-color);
 }
 
-.left div {
+.header__back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: 15px;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.header__back img {
+  width: 16px;
+  height: 12px;
+}
+
+.header__title {
   font-size: 16px;
 }
 
-.leftImg {
-  width: 16px;
-  height: 12px;
-  margin-right: 15px;
-  cursor: pointer;
-}
-
-.right {
+.header__right {
   flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 }
 </style>

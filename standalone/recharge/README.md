@@ -1,26 +1,24 @@
-# Recharge Standalone Page
+# Standalone Recharge Page
 
-This package contains an isolated version of the recharge screen with the same layout as the original project.
+This folder contains a standalone build of the H5 recharge screen. The layout
+and visual styles mirror the in-app page so that it can be served separately or
+embedded in another host without pulling in the full project.
 
-## Usage
-
-```bash
-npm install
-npm run dev
-```
-
-The development server runs on [http://localhost:5173](http://localhost:5173).
-
-To build the page for production, run:
+## Development
 
 ```bash
-npm run build
+yarn install
+yarn dev
 ```
 
-## Prebuilt bundle
+The development server runs on http://localhost:5173/ by default.
 
-If you only need the compiled assets, open `dist/index.html` directly in your
-browser or deploy the contents of the `dist` folder to any static host. The
-HTML, CSS, JavaScript, and icons inside `dist/` were generated to match the UI
-and interactions of the Vue source without requiring a build step in this
-environment.
+## Production Build
+
+```bash
+yarn build
+```
+
+The generated assets will be placed in `dist/`. The repository ships with a
+pre-built bundle so the page can run immediately by opening
+`dist/index.html` in a browser.
