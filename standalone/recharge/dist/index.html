@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>快捷充币</title>
+    <link rel="stylesheet" href="./assets/index.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="page">
+        <header class="header">
+          <button class="back" type="button" data-action="back">
+            <img src="./assets/icons/jiantou-z.svg" alt="返回" />
+          </button>
+          <h1 class="title">快捷充币</h1>
+          <span class="placeholder"></span>
+        </header>
+
+        <section class="list">
+          <h2 class="title">币种列表</h2>
+          <div data-role="coin-list"></div>
+        </section>
+
+        <div class="custom" data-action="service">
+          <div class="left">
+            <span class="service-img" aria-hidden="true"></span>
+            <span class="text">人工匹配商家</span>
+          </div>
+          <img class="arrow" src="./assets/icons/jiantou.svg" alt="箭头" />
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/index.js"></script>
+  </body>
+</html>
