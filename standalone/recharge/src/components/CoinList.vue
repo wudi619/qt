@@ -1,21 +1,19 @@
 <template>
   <section class="content">
-    <p class="content__title">币种列表</p>
+    <p>币种列表</p>
     <div class="list">
       <div
         v-for="coin in coins"
         :key="coin.code"
-        class="list__item"
-        role="button"
-        tabindex="0"
+        class="listCoin"
         @click="openCoin(coin)"
       >
-        <div class="list__item-left">
-          <img class="list__icon" :src="iconMap[coin.icon]" :alt="coin.label" />
-          <span class="list__label">{{ coin.label }}</span>
+        <div class="left">
+          <img class="coin" :src="iconMap[coin.icon]" :alt="coin.label" />
+          <span>{{ coin.label }}</span>
         </div>
-        <div class="list__item-right">
-          <img class="list__arrow" :src="arrowIcon" alt="" />
+        <div class="right">
+          <img class="jiantou" :src="arrowIcon" alt="" />
         </div>
       </div>
     </div>
@@ -57,35 +55,37 @@ const openCoin = (coin) => {
 
 .content {
   padding: 30px 15px 0;
-}
 
-.content__title {
-  font-size: 16px;
-  margin-bottom: 20px;
-  text-align: left;
-}
+  p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: left;
+  }
 
-.list__item {
-  margin-bottom: 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .list {
+    .listCoin {
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-.list__item-left,
-.list__item-right {
-  display: flex;
-  align-items: center;
-}
+      .left,
+      .right {
+        display: flex;
+        align-items: center;
 
-.list__icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 15px;
-}
+        .coin {
+          width: 20px;
+          height: 20px;
+          margin-right: 15px;
+        }
 
-.list__arrow {
-  width: 10px;
-  height: 10px;
+        .jiantou {
+          width: 10px;
+          height: 10px;
+        }
+      }
+    }
+  }
 }
 </style>

@@ -24,8 +24,4 @@ const coins = [
   min-height: 100vh;
   background-color: var(--ex-default-background-color);
 }
-
-.page__body {
-  padding-top: 61px;
-}
 </style>

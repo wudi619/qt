@@ -2,9 +2,7 @@
   <div class="placeholder"></div>
   <header class="header" :class="{ 'header--border': borderBottom }">
     <div class="header__left">
-      <button type="button" class="header__back" @click="handleBack" aria-label="返回">
-        <img :src="backIcon" alt="" />
-      </button>
+      <img :src="backIcon" alt="" class="header__back" @click="handleBack" />
       <div class="header__title">{{ title }}</div>
     </div>
     <div class="header__right"></div>
@@ -65,20 +63,10 @@ const handleBack = () => {
 }
 
 .header__back {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  margin-right: 15px;
-  padding: 0;
-  border: none;
-  background: none;
-}
-
-.header__back img {
   width: 16px;
   height: 12px;
+  margin-right: 15px;
+  cursor: pointer;
 }
 
 .header__title {
